@@ -33,6 +33,8 @@ bei jedem Vorteile herausstellen für Vergleich
 
 ### Pull
 
+Simon: Evtl. wären auch Bilder spannend, die zeigen, wie es ist, wenn man mehrere Application Repos hat. Dann würde man ja das gleiche Environment Repo benutzen, oder? D.h. n applications 1 environment repo. Letztlich muss man auch aufzeigen, wie es sich bei unterschiedlichen environments (dev, stage, qa, prod) verhält. Evtl. als Sektion wie man das nun in einem Team umsetzen würde mit vielen Anwendungen und mindestens mal dev und prod als Umgebung. Das könnte interessant sein. 
+
 ![Pull based GitOps](images/pull.png)
 
 ## Prinzipien von GitOps
