@@ -113,7 +113,7 @@ Einordnung? Pull/Push
 
 [Florian Beetz](#) is currently studying International Software Systems Science at University of Bamberg.
 
-<div style="clear:left"/>
+<div style="clear:left"></div>
 
 <img src="images/simon-avatar.png" alt="Simon" width="80" style="float:left; padding: 12px" />
 
