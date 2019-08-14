@@ -109,13 +109,13 @@ Einordnung? Pull/Push
 
 ## Authors
 
-<img src="https://via.placeholder.com/80/FFFFFF" alt="Florian" width="80" style="float:left; padding: 12px">
+<img src="https://via.placeholder.com/80/FFFFFF" alt="Florian" width="80" style="float:left; padding: 12px" />
 
 [Florian Beetz](#) is currently studying International Software Systems Science at University of Bamberg.
 
-<div style="clear:left">
+<div style="clear:left"/>
 
-<img src="images/simon-avatar.png" alt="Simon" width="80" style="float:left; padding: 12px">
+<img src="images/simon-avatar.png" alt="Simon" width="80" style="float:left; padding: 12px" />
 
 [Simon Harrer](https://twitter.com/simonharrer) is a senior consultant at INNOQ. As part of a remote mob, he fights everyday out for simple solutions with domain-driven design, fitting architectures such as microservices or monoliths, and clean code in Java, Ruby or even JavaScript. Most recently, he wrote the book [Java by Comparison](https://java.by-comparison.com) that helps Java beginners to write cleaner code through before/after comparisons.
 

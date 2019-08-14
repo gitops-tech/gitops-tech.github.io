@@ -1,4 +1,4 @@
-# Impressum
+## Impressum
 
 **Angaben gemäß § 5 TMG<br/>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV**
 
@@ -10,6 +10,6 @@ GERMANY
 [florian@gitops.tech](mailto:florian@gitops.tech)
 
 
-# Privacy Policy
+## Privacy Policy
 
 **TODO**
