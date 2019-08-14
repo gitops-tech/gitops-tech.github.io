@@ -4,7 +4,9 @@ Zitate
 * gecoined von WeaveWorks
 why this site? -> alles an einer Stelle, short and to the point
 
-## Was ist GitOps?
+## What is GitOps?
+
+GitOps is a way of implementing Continuous Deployment for cloud native applications.
 
 GitOps ist eine Möglichkeit Continuous Deployment für Cloud Native Anwendungen
 zu implementieren.
@@ -17,11 +19,13 @@ zu implementieren.
 Benefit -> Prinzip
 
 
-## Wie funktioniert GitOps?
+## How does GitOps work?
 
 ### Push
 
 Bilder aus Seminararbeit, neues Layout mit wirklichem Flow
+
+![Push based GitOps](images/push.png)
 
 evtl. gifs
 
@@ -29,7 +33,7 @@ bei jedem Vorteile herausstellen für Vergleich
 
 ### Pull
 
-
+![Pull based GitOps](images/pull.png)
 
 ## Prinzipien von GitOps
 
@@ -71,19 +75,19 @@ Alle Code Artefakte müssen unveränderbar sein.
 
 ## FAQ
 
-### SVN?
+### Is there also SVNOps?
 
 ### GitOps vs. DevOps?
 
 ### GitOps vs. NoOps?
 
-### Is GitOps K8S only?
+### I don't use Kubernetes. Can I still use GitOps?
 
 ### Grenzen von GitOps?
 
 jede Infrastruktur? was sind die requirements? when can I use GitOps?
 
-### Ist mein Projekt ready for GitOps?
+### Is my project ready for GitOps?
 
 ## Tooling
 
@@ -103,12 +107,21 @@ Einordnung? Pull/Push
 * ...
 
 
-## Authors 
+## Authors
+
+<img src="https://via.placeholder.com/80/FFFFFF" alt="Florian" width="80" style="float:left; padding: 12px">
+
+[Florian Beetz](#) is currently studying International Software Systems Science at University of Bamberg.
+
+<div style="clear:left">
 
 <img src="images/simon-avatar.png" alt="Simon" width="80" style="float:left; padding: 12px">
+
 [Simon Harrer](https://twitter.com/simonharrer) is a senior consultant at INNOQ. As part of a remote mob, he fights everyday out for simple solutions with domain-driven design, fitting architectures such as microservices or monoliths, and clean code in Java, Ruby or even JavaScript. Most recently, he wrote the book [Java by Comparison](https://java.by-comparison.com) that helps Java beginners to write cleaner code through before/after comparisons.
 
 
+
+[Imprint and Privacy Policy](legal.md)
 
 <script data-mode="hash" async defer src="https://cdn.simpleanalytics.io/hello.js"></script> 
 <noscript><img src="https://api.simpleanalytics.io/hello.gif" alt=""></noscript>
