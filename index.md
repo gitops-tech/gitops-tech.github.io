@@ -1,43 +1,95 @@
 # GitOps
 
-Zitate
-* gecoined von WeaveWorks
-why this site? -> alles an einer Stelle, short and to the point
+Since its inception in 2017 by [Weaveworks](https://www.weave.works/technologies/gitops/), GitOps has caused quite some fuss on Twitter and KubeCon.
+This site aggregates the essence of GitOps to help clear up the confusion about the topic.
+
 
 ## What is GitOps?
 
 GitOps is a way of implementing Continuous Deployment for cloud native applications.
+It focuses on a developer-centric experience when operating infrastructure, by
+using tools developers are already familiar with, including Git and Continuous
+Integration and Delivery tools.
 
-GitOps ist eine Möglichkeit Continuous Deployment für Cloud Native Anwendungen
-zu implementieren.
+The core idea of GitOps is having an environment Git repository, that always
+contains declarative descriptions of the infrastructure currently deployed in 
+the production environment.
+All changes to the environment are done by pushing new descriptions of the
+infrastructure to the repository, where an automated process is triggered to
+make the production environment match the described state in the repository.
 
-* Developer-centric
+> GitOps: versioned CI/CD on top of declarative infrastructure. Stop scripting and start shipping. 
+> 
+> &mdash; [Kelsey Hightower](https://twitter.com/kelseyhightower/status/953638870888849408)
 
-## Warum GitOps?
+
+## Why should I use GitOps?
 
 (eventuell hier schon Prinzipien)
 Benefit -> Prinzip
 
+### Deploy faster and more often
+
+**To do**
+
+
+### Easy and fast error recovery
+
+**To do**
+
+> The Git record is then not just an audit log but also a transaction log. You can roll back & forth to any snapshot.
+> 
+> &mdash; [Alexis Richardson](https://twitter.com/monadic/status/1002502644798238721)
+
+
+### Easier credential management
+
+> kubectl is the new ssh. Limit access and only use it for deployments when better tooling is not available.
+>
+> &mdash; [Kelsey Hightower](https://twitter.com/kelseyhightower/status/1070413458045202433)
+
+
+### Self-documenting deployments
+
+Have you ever SSH'd into a server and wondered what's running there?
+With GitOps, every change to any environment must happen through the environment
+repository.
+You can always check out the master branch and get a complete description of
+what is deployed where plus the complete history of every change ever made to
+the system.
+
+
+### Shared knowledge in teams
+
+**To do**
+
 
 ## How does GitOps work?
 
-### Push
+There are two ways how you can organize your Continuous Deployment process with
+Git repositories as the central element.
+
+
+### Push-based GitOps
 
 Bilder aus Seminararbeit, neues Layout mit wirklichem Flow
 
-![Push based GitOps](images/push.png)
+![Push-based GitOps](images/push.png)
 
 evtl. gifs
 
 bei jedem Vorteile herausstellen für Vergleich
 
-### Pull
+
+### Pull-based GitOps
 
 Simon: Evtl. wären auch Bilder spannend, die zeigen, wie es ist, wenn man mehrere Application Repos hat. Dann würde man ja das gleiche Environment Repo benutzen, oder? D.h. n applications 1 environment repo. Letztlich muss man auch aufzeigen, wie es sich bei unterschiedlichen environments (dev, stage, qa, prod) verhält. Evtl. als Sektion wie man das nun in einem Team umsetzen würde mit vielen Anwendungen und mindestens mal dev und prod als Umgebung. Das könnte interessant sein. 
 
-![Pull based GitOps](images/pull.png)
+![Pull-based GitOps](images/pull.png)
+
 
 ## Prinzipien von GitOps
+
 
 ### Operations nur mit Git
 
@@ -79,9 +131,34 @@ Alle Code Artefakte müssen unveränderbar sein.
 
 ### Is there also SVNOps?
 
-### GitOps vs. DevOps?
+In a way, yes. In principle, you can use any version control system you want. 
+One of the core ideas of GitOps is letting developers use the tools they are
+familiar with to operate your infrastructure. If you prefer SVN over Git, that's
+cool! However, you may need to put more effort into finding tools that work for
+you or even write your own.
 
-### GitOps vs. NoOps?
+### Should I hire GitOps engineers for my team now?
+
+No! There are no GitOps engineers. GitOps is not a role (and neither is DevOps).
+GitOps is a set of practices. You can look for a developer who has experience
+practicing GitOps - or simply let your developers try out those practices.
+
+
+### We are already doing DevOps. What's the difference to GitOps?
+
+### So, is GitOps basically NoOps?
+
+### Is GitOps just versioned Infrastructure as Code?
+
+No. Declarative IaC plays a huge role for implementing GitOps, but it's not just
+that.
+GitOps takes the whole ecosystem and tooling around Git and applies it to
+infrastructure.
+Continuous Deployment systems guarantee that the currently desired state of the
+infrastructure is deployed in the production environment.
+Apart from that you gain all the benefits of code reviews, pull requests, and
+comments on changes for your infrastructure.
+
 
 ### I don't use Kubernetes. Can I still use GitOps?
 
