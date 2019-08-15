@@ -172,7 +172,7 @@ Einordnung? Pull/Push
 
 ## Authors
 
-<img src="https://via.placeholder.com/80/FFFFFF" alt="Florian" width="80" style="float:left; padding: 12px" />
+<img src="images/florian-avatar.png" alt="Florian" width="80" style="float:left; padding: 12px" />
 
 [Florian Beetz](#) is currently studying International Software Systems Science at University of Bamberg.
 
