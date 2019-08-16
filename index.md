@@ -54,6 +54,8 @@ You can always check out the master branch and get a complete description of wha
 
 **To do**
 
+Simon: maybe describe the case study in a separate markdown file on this (then two-page) microsite with lots of pictures. 
+
 
 ## How does GitOps work?
 
