@@ -24,6 +24,10 @@ Benefit -> Prinzip
 
 ### Deploy faster and more often
 
+Okay, to be fair, probably every Continuous Deployment technology promises to make deploying faster and allow you to deploy more often.
+What is unique about GitOps is that you don't have to switch tools for deploying your application.
+Everything happens in the version control system you use for developing the application anyways.
+
 > When we say “high velocity” we mean that every product team can safely ship updates many times a day &mdash; deploy instantly, observe the results in real time, and use this feedback to roll forward or back.
 >
 > &mdash; [Weaveworks](https://www.weave.works/blog/gitops-high-velocity-cicd-for-kubernetes)
@@ -55,8 +59,6 @@ You can always check out the master branch and get a complete description of wha
 
 **To do**
 
-Simon: maybe describe the case study in a separate markdown file on this (then two-page) microsite with lots of pictures. 
-
 
 ## How does GitOps work?
 
@@ -65,13 +67,17 @@ There are two ways how you can organize your Continuous Deployment process with 
 
 ### Push-based GitOps
 
-Bilder aus Seminararbeit, neues Layout mit wirklichem Flow
+Push-based GitOps works with regular CI/CD tools, such as Jenkins, CircleCI or Travis CI.
+The source code of your application lives inside the application repository along with your Kubernetes YAMLs needed to deploy your app.
+Whenever your application code is updated, the CI pipeline is triggered, your application is build, but also the environment repository is updated with new deployment descriptors.
+You can also just store templates of your YAMLs to always set the currently build version correctly.
 
 ![Push-based GitOps](images/push.png)
 
-evtl. gifs
+Changes to the environment repository trigger the Continuous Deployment pipeline.
+This pipeline is responsible for applying all manifests in the environment repository to your infrastructure.
 
-bei jedem Vorteile herausstellen für Vergleich
+**Want to see how to set it up?** Check out [Google's Tutorial](https://cloud.google.com/kubernetes-engine/docs/tutorials/gitops-cloud-build) on how to set up Push-based GitOps with their Cloud Builds and GKE.
 
 
 ### Pull-based GitOps
@@ -79,6 +85,8 @@ bei jedem Vorteile herausstellen für Vergleich
 Simon: Evtl. wären auch Bilder spannend, die zeigen, wie es ist, wenn man mehrere Application Repos hat. Dann würde man ja das gleiche Environment Repo benutzen, oder? D.h. n applications 1 environment repo. Letztlich muss man auch aufzeigen, wie es sich bei unterschiedlichen environments (dev, stage, qa, prod) verhält. Evtl. als Sektion wie man das nun in einem Team umsetzen würde mit vielen Anwendungen und mindestens mal dev und prod als Umgebung. Das könnte interessant sein. 
 
 ![Pull-based GitOps](images/pull.png)
+
+**Want to see how to set it up?** Check out our [Case Study](case-study.md) about setting up Pull-based GitOps on Google's GKE.
 
 
 ## Prinzipien von GitOps
