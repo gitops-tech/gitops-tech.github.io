@@ -62,7 +62,12 @@ You can always check out the master branch and get a complete description of wha
 
 ## How does GitOps work?
 
-There are two ways how you can organize your Continuous Deployment process with Git repositories as the central element.
+There are two ways how you can organize your Continuous Deployment process with Git repositories as the central element: Push-based GitOps and Pull-based GitOps.
+They both have in common, that they use at least two repositories: the application repository and the environment repository.
+The application repository contains the source code of your application and the deployment manifests to deploy the application, while the environment repository contains all deployment manifests currently deployed in an environment.
+
+Of course, you can have multiple application repositories if you are working with microservices, or if your application consists of some other kind of independantly deployable components.
+You can also manage multiple environments, by just using different branches in the environment repository for each environment.
 
 
 ### Push-based GitOps
