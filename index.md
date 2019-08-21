@@ -3,7 +3,6 @@
 Since its inception in 2017 by [Weaveworks](https://www.weave.works/technologies/gitops/), GitOps has caused quite some fuss on Twitter and KubeCon.
 This site aggregates the essence of GitOps to help clear up the confusion about the topic.
 
-Simon: wir brauchen twitter tags, d.h. wenn man die Seite verlinkt, dass man gute Infos erscheinen inkl Kurzbeschreibung etc.
 
 ## What is GitOps?
 
@@ -25,8 +24,9 @@ Benefit -> Prinzip
 
 ### Deploy faster and more often
 
-**To do**
-
+> When we say “high velocity” we mean that every product team can safely ship updates many times a day &mdash; deploy instantly, observe the results in real time, and use this feedback to roll forward or back.
+>
+> &mdash; [Weaveworks](https://www.weave.works/blog/gitops-high-velocity-cicd-for-kubernetes)
 
 ### Easy and fast error recovery
 
