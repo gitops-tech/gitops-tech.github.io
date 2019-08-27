@@ -34,7 +34,9 @@ Everything happens in the version control system you use for developing the appl
 
 ### Easy and fast error recovery
 
-**To do**
+Oh no! Your production environment is down!
+With GitOps you have a complete history of what was deployed in any environment at any time in your Git repository.
+This makes error recovery as easy as issuing a `git revert` and watching your environment being restored.
 
 > The Git record is then not just an audit log but also a transaction log. You can roll back & forth to any snapshot.
 > 
@@ -42,6 +44,9 @@ Everything happens in the version control system you use for developing the appl
 
 
 ### Easier credential management
+
+GitOps allows you to manage deployments completely from inside your cluster.
+This means, developers don't need direct access to your cluster at all, your cluster needs access to your Git repository and image registry!
 
 > kubectl is the new ssh. Limit access and only use it for deployments when better tooling is not available.
 >
@@ -57,7 +62,12 @@ You can always check out the master branch and get a complete description of wha
 
 ### Shared knowledge in teams
 
-**To do**
+Using Git to store complete descriptions of your deployed infrastructure allows everybody in your team to check out its evolution over time.
+With great commit messages everybody can reproduce the thought process of changing infrastructure and also easily find examples of how to set up new systems.
+
+> GitOps is the best thing since configuration as code. Git changed how we collaborate, but declarative configuration is the key to dealing with infrastructure at scale, and sets the stage for the next generation of management tools.
+> 
+> &mdash; [Kelsey Hightower](https://twitter.com/kelseyhightower/status/1164192321891528704)
 
 
 ## How does GitOps work?
@@ -93,44 +103,6 @@ Simon: Evtl. wären auch Bilder spannend, die zeigen, wie es ist, wenn man mehre
 
 **Want to see how to set it up?** Check out our [Case Study](case-study.md) about setting up Pull-based GitOps on Google's GKE.
 
-
-## Prinzipien von GitOps
-
-
-### Operations nur mit Git
-
-Alle Änderungen am System müssen über Git durchgeführt werden.
-
-Vorteile:
-
-* Versionierung von allen Änderungen an der Infrastruktur
-* Arbeiten mit bekannten Tools
-* Reviews mit Kommentaren von Devs und Ops
-* Reverts im Fehlerfall
-
-### Deklarative Beschreibung des Systems
-
-Die benötigte Infrastruktur des Systems muss deklarativ mit Infrastructure as Code beschreibbar sein.
-
-Vorteile:
-
-* Idempotenz
-* Einfacher zu verstehen, da IaC Tools die eigentliche Arbeit machen ("make it so!")
-
-### Beobachtbarkeit des ganzen Systems
-
-Nicht nur der Zustand der Software eines Systems muss beobachtbar sein, sondern
-auch die Infrastruktur.
-
-Vorteile:
-
-* Vergleich mit dem gewollten Zustand
-
-### Immutable Deployment Artifacts (?)
-
-Alle Code Artefakte müssen unveränderbar sein.
-
-* 
 
 ## FAQ
 
