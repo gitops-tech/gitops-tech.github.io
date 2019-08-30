@@ -19,9 +19,6 @@ All changes to the environment are done by pushing new descriptions of the infra
 
 ## Why should I use GitOps?
 
-(eventuell hier schon Prinzipien)
-Benefit -> Prinzip
-
 ### Deploy faster and more often
 
 Okay, to be fair, probably every Continuous Deployment technology promises to make deploying faster and allow you to deploy more often.
@@ -97,11 +94,28 @@ This pipeline is responsible for applying all manifests in the environment repos
 
 ### Pull-based GitOps
 
-Simon: Evtl. wären auch Bilder spannend, die zeigen, wie es ist, wenn man mehrere Application Repos hat. Dann würde man ja das gleiche Environment Repo benutzen, oder? D.h. n applications 1 environment repo. Letztlich muss man auch aufzeigen, wie es sich bei unterschiedlichen environments (dev, stage, qa, prod) verhält. Evtl. als Sektion wie man das nun in einem Team umsetzen würde mit vielen Anwendungen und mindestens mal dev und prod als Umgebung. Das könnte interessant sein. 
+Pull-based GitOps uses the same concepts as the push-based variant, but changes how the Continuous Deployment pipeline works.
+Traditional CI/CD pipelines are triggered by an external event, for example when new code is pushed to a repository.
+With this approach, the Operator is introduced.
+It takes over the role of the pipeline by continuously comparing the environment repository with the deployed infrastructure.
+Whenever differences are noticed, the operator updates the infrastructure to match the environment repository.
+Additionally, when working with Kubernetes clusters, the image registry can be monitored to find new versions of images and deploy them to the cluster.
 
 ![Pull-based GitOps](images/pull.png)
 
+Just like push-based GitOps, this variant updates the environment whenever the environment repository changes.
+However, with the actively polling operator, changes can also be noticed in the other direction.
+Whenever the deployed infrastructure changes in any way not described in the environment repository, these changes are reverted.
+This ensures that all changes are made tracable in the Git log, by making all direct changes to the cluster impossible.
+
 **Want to see how to set it up?** Check out our [Case Study](case-study.md) about setting up Pull-based GitOps on Google's GKE.
+
+
+### Working with multiple applications and environments
+
+![Multiple applications and environments](images/multiple.png)
+
+Simon: Evtl. wären auch Bilder spannend, die zeigen, wie es ist, wenn man mehrere Application Repos hat. Dann würde man ja das gleiche Environment Repo benutzen, oder? D.h. n applications 1 environment repo. Letztlich muss man auch aufzeigen, wie es sich bei unterschiedlichen environments (dev, stage, qa, prod) verhält. Evtl. als Sektion wie man das nun in einem Team umsetzen würde mit vielen Anwendungen und mindestens mal dev und prod als Umgebung. Das könnte interessant sein. 
 
 
 ## FAQ
@@ -122,7 +136,17 @@ GitOps is a set of practices. You can look for a developer who has experience pr
 
 ### We are already doing DevOps. What's the difference to GitOps?
 
+DevOps is all about the cultural change in an organization to make teams (especially Development and Operations) work better together.
+GitOps is a technique to implement Continuous Delivery.
+While DevOps and GitOps share principles like automation and self-serviced infrastructure, it does not really make sense to compare them.
+However, these shared principles certainly make it easier to adopt a GitOps workflow when you are already actively employing DevOps techniques.
+
+
 ### So, is GitOps basically NoOps?
+
+You can use GitOps to implement NoOps, but it doesn't automatically make all operations tasks obsolete.
+If you are using cloud ressources anyway, GitOps can be used to automate these tasks, but if you are running a Kubernetes cluster on your own hardware, you probably want to keep some Operations guys around.
+
 
 ### Is GitOps just versioned Infrastructure as Code?
 
@@ -134,11 +158,23 @@ Apart from that you gain all the benefits of code reviews, pull requests, and co
 
 ### I don't use Kubernetes. Can I still use GitOps?
 
-### Grenzen von GitOps?
+Yes! GitOps is not limited to Kubernetes.
+In principle, you can use any infrastructure that can be observed and described declaratively, and has Infrastructure as Code tools available.
+However, currently most operators for pull-based GitOps are implemented with Kubernetes in mind.
 
-jede Infrastruktur? was sind die requirements? when can I use GitOps?
+
+### What are the limitations of GitOps?
+
+GitOps doesn't really work well outside of the cloud.
+Most cloud services can be managed with Infrastructure as Code tools, but the rack in your office probably can't.
+
 
 ### Is my project ready for GitOps?
+
+If your project already lives in the cloud, the answer is most likely: Yes!
+The cool thing about GitOps is that you don't need to write any code differently.
+All you need to get started is infrastructure, that can be managed with declarative IaC tools.
+
 
 ## Tooling
 
