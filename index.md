@@ -6,7 +6,7 @@ This site aggregates the essence of GitOps to help clear up the confusion about 
 
 ## What is GitOps?
 
-GitOps is a way of implementing Continuous Deployment (CD) for cloud native applications.
+GitOps is a way of implementing Continuous Deployment for cloud native applications.
 It focuses on a developer-centric experience when operating infrastructure, by using tools developers are already familiar with, including Git and Continuous Deployment tools.
 
 The core idea of GitOps is having a Git repository that always contains declarative descriptions of the infrastructure currently desired in the production environment and an automated process to make the production environment match the described state in the repository.
@@ -213,7 +213,7 @@ Einordnung? Pull/Push
 
 <img src="images/simon-avatar.png" alt="Simon" width="80" style="float:left; padding: 12px" />
 
-[Simon Harrer](https://twitter.com/simonharrer) is a senior consultant at INNOQ. As part of a remote mob, he fights everyday out for simple solutions with domain-driven design, fitting architectures such as microservices or monoliths, and clean code in Java, Ruby or even JavaScript. Most recently, he wrote the book [Java by Comparison](https://java.by-comparison.com) that helps Java beginners to write cleaner code through before/after comparisons.
+[Simon Harrer](https://twitter.com/simonharrer) is a senior consultant at INNOQ. As part of a [remote mob](https://remotemobprogramming.org), he fights everyday out for simple solutions with domain-driven design, fitting architectures such as microservices or monoliths, and clean code in Java, Ruby or even JavaScript. Most recently, he wrote the book [Java by Comparison](https://java.by-comparison.com) that helps Java beginners to write cleaner code through before/after comparisons.
 
 
 
