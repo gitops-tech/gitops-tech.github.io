@@ -33,8 +33,7 @@ Everything happens in the version control system you use for developing the appl
 ### Easy and fast error recovery
 
 Oh no! Your production environment is down!
-With GitOps you have a complete history of what was deployed in any environment at any time in your repository.
-Simon: stimmt nicht ganz, denn ob es wirklich deployed wurde ist ja nochmal was anderes. Du weisst lediglich, dass das vermutlich deplyoed wurde.
+With GitOps you have a complete history of how your environment changed over time.
 This makes error recovery as easy as issuing a `git revert` and watching your environment being restored.
 
 > The Git record is then not just an audit log but also a transaction log. You can roll back & forth to any snapshot.
@@ -75,10 +74,8 @@ With great commit messages everybody can reproduce the thought process of changi
 
 There are two ways how you can organize your Continuous Deployment process with Git repositories as the central element: Push-based GitOps and Pull-based GitOps.
 They both have in common, that they use at least two repositories: the application repository and the environment repository.
-The application repository contains the source code of your application and the deployment manifests to deploy the application, while the environment repository contains all deployment manifests currently deployed in an environment. Simon: wie oben, aufpassen, da nur weil es im environment repo liegt, heisst das nicht, dass es wirklich korrekt deployed werden konnte. Oder was passiert, wenn das deployment fehlschlägt? Rollt dann der 'automated process' automatisch das git repo wieder zurück?
-
-Of course, you can have multiple application repositories if you are working with microservices, or if your application consists of some other kind of independantly deployable components.
-You can also manage multiple environments like you typically want for having multiple stages. For that, just use a branch per stage in the environment repository.
+The application repository contains the source code of your application and the deployment manifests to deploy the application, while the environment repository contains all deployment manifests of the currently desired infrastructure in an environment.
+The difference between the two types of GitOps, is how it is ensured, that the environment actually resembles the desired infrastructure.
 
 
 ### Push-based GitOps
@@ -87,11 +84,18 @@ Push-based GitOps works with regular CI/CD tools, such as [Jenkins](https://jenk
 The source code of your application lives inside the application repository along with your Kubernetes YAMLs needed to deploy your app.
 Whenever your application code is updated, the CI pipeline is triggered, your application is built, and finally the environment repository is updated with new deployment descriptors.
 
-Tip: You can also just store templates of your YAMLs to always set the currently build version correctly. Simon: store templates where? in the environment repository or the application repository?
+Tip: You can also just store templates of your YAMLs in your application repository.
+When a new version is built, you can use the template to generate the YAML in your environment repository.
 
 ![Push-based GitOps](images/push.png)
 
-Changes to the environment repository trigger the Continuous Deployment pipeline. Simon: Unterschied CI zu CD pipeline? Wo liegt der genau?
+Changes to the environment repository trigger the Continuous Deployment pipeline.
+
+> > Simon: Unterschied CI zu CD pipeline? Wo liegt der genau?
+> 
+> Florian: Eigentlich nur darin, was die machen. CI baut und testet, CD deployed wirklich.
+> Sollte man das da noch erklären oder irgendwie vereinfachen?
+
 This pipeline is responsible for applying all manifests in the environment repository to your infrastructure.
 
 **Want to see how to set it up?** Check out [Google's Tutorial](https://cloud.google.com/kubernetes-engine/docs/tutorials/gitops-cloud-build) on how to set up Push-based GitOps with their Cloud Builds and GKE.
@@ -113,14 +117,22 @@ However, with the operator, changes can also be noticed in the other direction.
 Whenever the deployed infrastructure changes in any way not described in the environment repository, these changes are reverted.
 This ensures that all changes are made tracable in the Git log, by making all direct changes to the cluster impossible.
 
-**Want to see how to set it up?** Check out our [Case Study](case-study.md) about setting up Pull-based GitOps on Google's GKE.
+<!-- **Want to see how to set it up?** Check out our [Case Study](case-study.md) about setting up Pull-based GitOps on Google's GKE. -->
 
 
 ### Working with multiple applications and environments
 
+Of course working with just one application repository and only one environment is not realistic for most applications.
+When you are using a microservices architecture, you probably want to keep each service in its own repository.
+
+GitOps can also handle such a use case.
+You can always just set up multiple CI pipelines that update the environment repository.
+From there on the regular automated GitOps workflow kicks in and deploys all parts of your application.
+
 ![Multiple applications and environments](images/multiple.png)
 
-Simon: Evtl. wären auch Bilder spannend, die zeigen, wie es ist, wenn man mehrere Application Repos hat. Dann würde man ja das gleiche Environment Repo benutzen, oder? D.h. n applications 1 environment repo. Letztlich muss man auch aufzeigen, wie es sich bei unterschiedlichen environments (dev, stage, qa, prod) verhält. Evtl. als Sektion wie man das nun in einem Team umsetzen würde mit vielen Anwendungen und mindestens mal dev und prod als Umgebung. Das könnte interessant sein. 
+Managing multiple environments with GitOps can be done by just using separate branches in the environment repository.
+You can set up the operator or the CD pipeline to react to changes on one branch by deploying to the production environment and another to deploy to staging.
 
 
 ## FAQ
@@ -132,7 +144,7 @@ In principle, you can use any version control system you want.
 One of the core ideas of GitOps is letting developers use the tools they are familiar with to operate your infrastructure. 
 If you prefer SVN over Git, that's cool!
 However, you may need to put more effort into finding tools that work for you or even write your own.
-All available operators only work with Git repository - sorry!
+All available operators only work with Git repository &mdash; sorry!
 
 
 ### Should I hire GitOps engineers for my team now?
@@ -187,27 +199,35 @@ All you need to get started is infrastructure that can be managed with declarati
 
 ## Tooling
 
-* [ArgoCD](https://argoproj.github.io/argo-cd/)
-* [Weaveworks Flux](https://github.com/fluxcd/flux)
-* ...
+* [ArgoCD](https://argoproj.github.io/argo-cd/): A GitOps operator for Kubernetes with a web interface
+* [Gitkube](https://gitkube.sh): A tool for building and deploying docker images on Kubernetes using `git push`
+* [JenkinsX](https://jenkins-x.io/): Continuous Delivery on Kubernetes with built-in GitOps
+* [Weaveworks Flux](https://github.com/fluxcd/flux): The GitOps Kubernetes operator by the creators of GitOps &mdash; [Weaveworks](https://www.weave.works/technologies/gitops/)
 
-Einordnung? Pull/Push
+Also check out Weavework's [Awesome-GitOps](https://github.com/weaveworks/awesome-gitops).
 
-
-## Weitere Resourcen
+## Ressources
 
 ### Blog Posts
 
 * [GitOps - Operations by Pull Request](https://www.weave.works/blog/gitops-operations-by-pull-request)
+* [What Is GitOps and Why It Might Be The Next Big Thing for DevOps](https://thenewstack.io/what-is-gitops-and-why-it-might-be-the-next-big-thing-for-devops/)
 * [What is GitOps Really?](https://www.weave.works/blog/what-is-gitops-really)
-* ...
+
+### Talks
+
+* [GitOps - Operations by Pull Request [B] - Alexis Richardson, Weaveworks & William Denniss, Google](https://www.youtube.com/watch?v=BSqE2RqctNs)
+* [Tutorial: Hands-on Gitops - Brice Fernandes, Weaveworks](https://www.youtube.com/watch?v=0SFTaAuOzsI)
+* [What is GitOps? Next level delivery with Flux & Kubernetes by Rafał Lewandowski](https://www.youtube.com/watch?v=5zt-jzKHwX8)
 
 
 ## Authors
 
 <img src="images/florian-avatar.png" alt="Florian" width="80" style="float:left; padding: 12px" />
 
-[Florian Beetz](#) is currently studying International Software Systems Science at University of Bamberg.
+[Florian Beetz](https://www.linkedin.com/in/florian-beetz-251048191/) is currently studying International Software Systems Science at University of Bamberg.
+He is interested in cloud computing, clean code, and software engineering techniques.
+In his free time, he likes to go rock climbing.
 
 <div style="clear:left"></div>
 
