@@ -82,28 +82,26 @@ The difference between the two types of GitOps, is how it is ensured, that the e
 
 Push-based GitOps works with regular CI/CD tools, such as [Jenkins](https://jenkins.io/), [CircleCI](https://circleci.com/) or [Travis CI](https://travis-ci.org/).
 The source code of your application lives inside the application repository along with your Kubernetes YAMLs needed to deploy your app.
-Whenever your application code is updated, the CI pipeline is triggered, your application is built, and finally the environment repository is updated with new deployment descriptors.
+Whenever your application code is updated, the build pipeline is triggered, which builds your container images, and finally the environment repository is updated with new deployment descriptors.
 
 Tip: You can also just store templates of your YAMLs in your application repository.
 When a new version is built, you can use the template to generate the YAML in your environment repository.
 
 ![Push-based GitOps](images/push.png)
 
-Changes to the environment repository trigger the Continuous Deployment pipeline.
-
-> > Simon: Unterschied CI zu CD pipeline? Wo liegt der genau?
-> 
-> Florian: Eigentlich nur darin, was die machen. CI baut und testet, CD deployed wirklich.
-> Sollte man das da noch erklären oder irgendwie vereinfachen?
-
+Changes to the environment repository trigger the deployment pipeline.
 This pipeline is responsible for applying all manifests in the environment repository to your infrastructure.
+
+One important thing to keep in mind when using this approach, is that the deployment pipeline *only* is triggered when your environment repository changes.
+It can not automatically notice any deviations of the environment and its desired state.
+This means, you need some way of monitoring in place, so that you can intervene if your environment doesn't match what is described in the environment repository.
 
 **Want to see how to set it up?** Check out [Google's Tutorial](https://cloud.google.com/kubernetes-engine/docs/tutorials/gitops-cloud-build) on how to set up Push-based GitOps with their Cloud Builds and GKE.
 
 
 ### Pull-based GitOps
 
-Pull-based GitOps uses the same concepts as the push-based variant, but changes how the Continuous Deployment pipeline works.
+Pull-based GitOps uses the same concepts as the push-based variant, but changes how the deployment pipeline works.
 Traditional CI/CD pipelines are triggered by an external event, for example when new code is pushed to an application repository.
 With this approach, the *operator* is introduced.
 It takes over the role of the pipeline by continuously comparing the desired state in the environment repository with the actual state in the deployed infrastructure.
@@ -117,6 +115,11 @@ However, with the operator, changes can also be noticed in the other direction.
 Whenever the deployed infrastructure changes in any way not described in the environment repository, these changes are reverted.
 This ensures that all changes are made tracable in the Git log, by making all direct changes to the cluster impossible.
 
+This change in direction solves the problem of push-based GitOps, where the environment is only updated when the environment repository is updated.
+However, this doesn't mean you can completely do without any monitoring in place.
+Most operators support sending mails or Slack notifications if it can not bring the environment to the desired state for any reason, for example if it can not pull a container image.
+Additionally, you probably should set up monitoring for the operator itself, as there is no longer any automated deployment process without it.
+
 <!-- **Want to see how to set it up?** Check out our [Case Study](case-study.md) about setting up Pull-based GitOps on Google's GKE. -->
 
 
@@ -126,13 +129,13 @@ Of course working with just one application repository and only one environment 
 When you are using a microservices architecture, you probably want to keep each service in its own repository.
 
 GitOps can also handle such a use case.
-You can always just set up multiple CI pipelines that update the environment repository.
+You can always just set up multiple build pipelines that update the environment repository.
 From there on the regular automated GitOps workflow kicks in and deploys all parts of your application.
 
 ![Multiple applications and environments](images/multiple.png)
 
 Managing multiple environments with GitOps can be done by just using separate branches in the environment repository.
-You can set up the operator or the CD pipeline to react to changes on one branch by deploying to the production environment and another to deploy to staging.
+You can set up the operator or the deployment pipeline to react to changes on one branch by deploying to the production environment and another to deploy to staging.
 
 
 ## FAQ
