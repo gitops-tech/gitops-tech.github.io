@@ -174,6 +174,10 @@ So operations never really goes away.
 
 ### Is GitOps just versioned Infrastructure as Code?
 
+> Is GitOps just a new name for Infra as Code?
+> 
+> &mdash; [sholom](https://twitter.com/sholom/status/1173613576696795136)
+
 No. Declarative Infrastructure as Code plays a huge role for implementing GitOps, but it's not just that.
 GitOps takes the whole ecosystem and tooling around Git and applies it to infrastructure.
 Continuous Deployment systems guarantee that the currently desired state of the infrastructure is deployed in the production environment.
@@ -213,6 +217,7 @@ Also check out Weavework's [Awesome-GitOps](https://github.com/weaveworks/awesom
 
 ### Blog Posts
 
+* [An Inside Look at GitOps](https://devops.com/an-inside-look-at-gitops/)
 * [GitOps - Operations by Pull Request](https://www.weave.works/blog/gitops-operations-by-pull-request)
 * [What Is GitOps and Why It Might Be The Next Big Thing for DevOps](https://thenewstack.io/what-is-gitops-and-why-it-might-be-the-next-big-thing-for-devops/)
 * [What is GitOps Really?](https://www.weave.works/blog/what-is-gitops-really)
