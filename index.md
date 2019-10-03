@@ -207,9 +207,9 @@ All you need to get started is infrastructure that can be managed with declarati
 ## Tooling
 
 * [ArgoCD](https://argoproj.github.io/argo-cd/): A GitOps operator for Kubernetes with a web interface
+* [Flux](https://github.com/fluxcd/flux): The GitOps Kubernetes operator by the creators of GitOps &mdash; [Weaveworks](https://www.weave.works/technologies/gitops/)
 * [Gitkube](https://gitkube.sh): A tool for building and deploying docker images on Kubernetes using `git push`
 * [JenkinsX](https://jenkins-x.io/): Continuous Delivery on Kubernetes with built-in GitOps
-* [Weaveworks Flux](https://github.com/fluxcd/flux): The GitOps Kubernetes operator by the creators of GitOps &mdash; [Weaveworks](https://www.weave.works/technologies/gitops/)
 
 Also check out Weavework's [Awesome-GitOps](https://github.com/weaveworks/awesome-gitops).
 
