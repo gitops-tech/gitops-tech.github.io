@@ -213,7 +213,7 @@ All you need to get started is infrastructure that can be managed with declarati
 
 Also check out Weavework's [Awesome-GitOps](https://github.com/weaveworks/awesome-gitops).
 
-## Ressources
+## Resources
 
 ### Blog Posts
 
