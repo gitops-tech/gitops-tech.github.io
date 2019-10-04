@@ -4,7 +4,7 @@ plugins:
 
 theme: jekyll-theme-primer
 title: GitOps
-description: GitOps is Continuous Deployment for cloud native applications.
+description: GitOps is Continuous Deployment for cloud native applications
 
 twitter:
   username: fbeetz_

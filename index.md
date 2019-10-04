@@ -246,6 +246,3 @@ In his free time, he likes to go rock climbing.
 
 
 [Imprint and Privacy Policy](legal.md)
-
-<script data-mode="hash" async defer src="https://cdn.simpleanalytics.io/hello.js"></script> 
-<noscript><img src="https://api.simpleanalytics.io/hello.gif" alt=""></noscript>
