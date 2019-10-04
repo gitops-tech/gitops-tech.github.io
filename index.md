@@ -209,16 +209,19 @@ All you need to get started is infrastructure that can be managed with declarati
 * [ArgoCD](https://argoproj.github.io/argo-cd/): A GitOps operator for Kubernetes with a web interface
 * [Gitkube](https://gitkube.sh): A tool for building and deploying docker images on Kubernetes using `git push`
 * [JenkinsX](https://jenkins-x.io/): Continuous Delivery on Kubernetes with built-in GitOps
+* [Terragrunt](https://github.com/gruntwork-io/terragrunt): A wrapper for [Terraform](https://www.terraform.io/) for keeping configurations DRY, and managing remote state
 * [Weaveworks Flux](https://github.com/fluxcd/flux): The GitOps Kubernetes operator by the creators of GitOps &mdash; [Weaveworks](https://www.weave.works/technologies/gitops/)
+* [WKSctl](https://github.com/weaveworks/wksctl): A tool for Kubernetes cluster configuration management based on GitOps principles
 
 Also check out Weavework's [Awesome-GitOps](https://github.com/weaveworks/awesome-gitops).
 
 ## Ressources
 
-### Blog Posts
+### Blog Posts and Social Media
 
 * [An Inside Look at GitOps](https://devops.com/an-inside-look-at-gitops/)
 * [GitOps - Operations by Pull Request](https://www.weave.works/blog/gitops-operations-by-pull-request)
+* [GitOps: What, Why, and How.](https://www.reddit.com/r/kubernetes/comments/dc8bfd/gitops_what_why_and_how/)
 * [What Is GitOps and Why It Might Be The Next Big Thing for DevOps](https://thenewstack.io/what-is-gitops-and-why-it-might-be-the-next-big-thing-for-devops/)
 * [What is GitOps Really?](https://www.weave.works/blog/what-is-gitops-really)
 
