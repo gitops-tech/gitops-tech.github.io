@@ -1,5 +1,28 @@
-## Getting started with GitOps on Google Cloud
+## Getting Started with GitOps on Google Cloud
 
-**Todo**
+This page explains how to set up pull-based GitOps on Google Cloud Platform using Weavework's [flux](https://github.com/fluxcd/flux).
 
-Simon: maybe describe the case study in a separate markdown file on this (then two-page) microsite with lots of pictures. 
+### Setting Up the Google Cloud Project
+
+* Create Project
+* Enable APIs (GKE, GCB, GCR)
+
+  ![Setting up Google Kubernetes Engine API](images/cs-apis.gif)
+
+* Create Cluster with TF
+
+### Building Container Images with Google Cloud Build
+
+* Write cloudbuild.yaml
+* Set up GCB trigger on GitHub repo
+
+### Adding the Kubernetes Manifests to the Environment Repository
+
+* Write YAMLs
+* push to env repo
+
+### Deploying the Operator
+
+* clone flux
+* edit its configuration
+* deploy to cluster
