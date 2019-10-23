@@ -193,13 +193,13 @@ However, currently most operators for pull-based GitOps are implemented with Kub
 
 ### What are the limitations of GitOps?
 
-GitOps doesn't really work well outside of the cloud.
-Most cloud services can be managed with Infrastructure as Code tools, but the rack in your office probably can't.
+GitOps does not work with infrastructure that can not be observed or decaratively described.
+Kubernetes comes with both out of the box, but the same can also be achieved for other cloud resources with infrastructure as code tools like Terraform.
 
 
 ### Is my project ready for GitOps?
 
-If your project already lives in the cloud, the answer is most likely: Yes!
+If your project already lives in the cloud or in a Kubernetes cluster, the answer is most likely: Yes!
 The cool thing about GitOps is that you don't need to write any code differently.
 All you need to get started is infrastructure that can be managed with declarative Infrastructure as Code tools.
 
