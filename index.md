@@ -20,7 +20,7 @@ It's like having cruise control for managing your applications in production.
 
 ## Why should I use GitOps?
 
-### Deploy faster and more often
+### Deploy Faster More Often
 
 Okay, to be fair, probably every Continuous Deployment technology promises to make deploying faster and allows you to deploy more often.
 What is unique about GitOps is that you don't have to switch tools for deploying your application.
@@ -30,7 +30,7 @@ Everything happens in the version control system you use for developing the appl
 >
 > &mdash; [Weaveworks](https://www.weave.works/blog/gitops-high-velocity-cicd-for-kubernetes)
 
-### Easy and fast error recovery
+### Easy and Fast Error Recovery
 
 Oh no! Your production environment is down!
 With GitOps you have a complete history of how your environment changed over time.
@@ -41,7 +41,7 @@ This makes error recovery as easy as issuing a `git revert` and watching your en
 > &mdash; [Alexis Richardson](https://twitter.com/monadic/status/1002502644798238721)
 
 
-### Easier credential management
+### Easier Credential Management
 
 GitOps allows you to manage deployments completely from inside your environment.
 For that, your environment only needs access to your repository and image registry.
@@ -53,14 +53,14 @@ You don't have to give your developers direct access to the environment.
 > &mdash; [Kelsey Hightower](https://twitter.com/kelseyhightower/status/1070413458045202433)
 
 
-### Self-documenting deployments
+### Self-documenting Deployments
 
 Have you ever SSH'd into a server and wondered what's running there?
 With GitOps, every change to any environment must happen through the repository.
 You can always check out the master branch and get a complete description of what is deployed where plus the complete history of every change ever made to the system.
 And you get an audit trail of any changes in your system for free!
 
-### Shared knowledge in teams
+### Shared Knowledge in Teams
 
 Using Git to store complete descriptions of your deployed infrastructure allows everybody in your team to check out its evolution over time.
 With great commit messages everybody can reproduce the thought process of changing infrastructure and also easily find examples of how to set up new systems.
@@ -123,7 +123,7 @@ Additionally, you probably should set up monitoring for the operator itself, as 
 <!-- **Want to see how to set it up?** Check out our [Case Study](case-study.md) about setting up Pull-based GitOps on Google's GKE. -->
 
 
-### Working with multiple applications and environments
+### Working with Multiple Applications and Environments
 
 Of course working with just one application repository and only one environment is not realistic for most applications.
 When you are using a microservices architecture, you probably want to keep each service in its own repository.
