@@ -43,10 +43,10 @@ This makes error recovery as easy as issuing a `git revert` and watching your en
 
 ### Easier credential management
 
-GitOps allows you to manage deployments completely from inside your cluster.
-For that, your cluster only needs access to your repository and image registry.
+GitOps allows you to manage deployments completely from inside your environment.
+For that, your environment only needs access to your repository and image registry.
 That's it.
-You don't have to give your developers direct access to the cluster.
+You don't have to give your developers direct access to the environment.
 
 > kubectl is the new ssh. Limit access and only use it for deployments when better tooling is not available.
 >
@@ -140,6 +140,65 @@ You can set up the operator or the deployment pipeline to react to changes on on
 
 ## FAQ
 
+
+### Is my project ready for GitOps?
+
+Most likely: Yes!
+The cool thing about GitOps is that you don't need to write any code differently.
+All you need to get started is infrastructure that can be managed with declarative Infrastructure as Code tools.
+
+
+### I don't use Kubernetes. Can I still use GitOps?
+
+Yes! GitOps is not limited to Kubernetes.
+In principle, you can use any infrastructure that can be observed and described declaratively, and has Infrastructure as Code tools available.
+However, currently most operators for pull-based GitOps are implemented with Kubernetes in mind.
+
+
+### Is GitOps just versioned Infrastructure as Code?
+
+> Is GitOps just a new name for Infra as Code?
+> 
+> &mdash; [sholom](https://twitter.com/sholom/status/1173613576696795136)
+
+No. Declarative Infrastructure as Code plays a huge role for implementing GitOps, but it's not just that.
+GitOps takes the whole ecosystem and tooling around Git and applies it to infrastructure.
+Continuous Deployment systems guarantee that the currently desired state of the infrastructure is deployed in the production environment.
+Apart from that you gain all the benefits of code reviews, pull requests, and comments on changes for your infrastructure.
+
+
+### How to get secrets into the environment without storing them in git?
+
+First of all, never store secrets in plain text in git! Never!
+
+That being said, you have have secrets created within the environment which never leave the environment. The secret stays unknown, and applications get the secrets they require but they aren't exposed to the outside world. For example, you provision a database within the environment and give the secret to the applications interacting with the database only. 
+
+Another approach is to add a private key once to the environment (probably by someone from a dedicated ops team) and from that point you can add secrets encrypted by the public key to the environment repository. There's even tool support for such [sealed secrets](https://github.com/bitnami-labs/sealed-secrets) in the K8s ecosystem.
+
+
+### How does GitOps Handle DEV to PROD Propagation?
+
+GitOps doesn't provide a solution to propagating changes from one stage to the next one. 
+We recommend using only a single environment and avoid stage propagation altogether.
+But if you need multiple stages (e.g., DEV, QA, PROD, etc.) with an environment for each, you need to handle the propagation outside of the GitOps scope, for example by some CI/CD pipeline.
+
+
+### We are already doing DevOps. What's the difference to GitOps?
+
+DevOps is all about the cultural change in an organization to make people work better together.
+GitOps is a technique to implement Continuous Delivery.
+While DevOps and GitOps share principles like automation and self-serviced infrastructure, it doesn't really make sense to compare them.
+However, these shared principles certainly make it easier to adopt a GitOps workflow when you are already actively employing DevOps techniques.
+
+
+### So, is GitOps basically NoOps?
+
+You can use GitOps to implement NoOps, but it doesn't automatically make all operations tasks obsolete.
+If you are using cloud resources anyway, GitOps can be used to automate those.
+Typically, however, some part of the infrastructure like the network configuration or the Kubernetes cluster you use isn't managed by yourself decentrally but rather managed centrally by some operations team.
+So operations never really goes away.
+
+
 ### Is there also SVNOps?
 
 In a way, yes. 
@@ -156,54 +215,6 @@ No! There are no GitOps engineers. GitOps is not a role (and neither is DevOps).
 GitOps is a set of practices. You can look for a developer who has experience practicing GitOps &mdash; or simply let your developers try out those practices.
 
 
-### We are already doing DevOps. What's the difference to GitOps?
-
-DevOps is all about the cultural change in an organization to make people work better together.
-GitOps is a technique to implement Continuous Delivery.
-While DevOps and GitOps share principles like automation and self-serviced infrastructure, it doesn't really make sense to compare them.
-However, these shared principles certainly make it easier to adopt a GitOps workflow when you are already actively employing DevOps techniques.
-
-
-### So, is GitOps basically NoOps?
-
-You can use GitOps to implement NoOps, but it doesn't automatically make all operations tasks obsolete.
-If you are using cloud resources anyway, GitOps can be used to automate those.
-Typically, however, some part of the infrastructure like the network configuration or the Kubernetes cluster you use isn't managed by yourself decentrally but rather managed centrallly by some operations team.
-So operations never really goes away.
-
-
-### Is GitOps just versioned Infrastructure as Code?
-
-> Is GitOps just a new name for Infra as Code?
-> 
-> &mdash; [sholom](https://twitter.com/sholom/status/1173613576696795136)
-
-No. Declarative Infrastructure as Code plays a huge role for implementing GitOps, but it's not just that.
-GitOps takes the whole ecosystem and tooling around Git and applies it to infrastructure.
-Continuous Deployment systems guarantee that the currently desired state of the infrastructure is deployed in the production environment.
-Apart from that you gain all the benefits of code reviews, pull requests, and comments on changes for your infrastructure.
-
-
-### I don't use Kubernetes. Can I still use GitOps?
-
-Yes! GitOps is not limited to Kubernetes.
-In principle, you can use any infrastructure that can be observed and described declaratively, and has Infrastructure as Code tools available.
-However, currently most operators for pull-based GitOps are implemented with Kubernetes in mind.
-
-
-### What are the limitations of GitOps?
-
-GitOps does not work with infrastructure that can not be observed or decaratively described.
-Kubernetes comes with both out of the box, but the same can also be achieved for other cloud resources with infrastructure as code tools like Terraform.
-
-
-### Is my project ready for GitOps?
-
-If your project already lives in the cloud or in a Kubernetes cluster, the answer is most likely: Yes!
-The cool thing about GitOps is that you don't need to write any code differently.
-All you need to get started is infrastructure that can be managed with declarative Infrastructure as Code tools.
-
-
 ## Tooling
 
 * [ArgoCD](https://argoproj.github.io/argo-cd/): A GitOps operator for Kubernetes with a web interface
@@ -212,6 +223,7 @@ All you need to get started is infrastructure that can be managed with declarati
 * [JenkinsX](https://jenkins-x.io/): Continuous Delivery on Kubernetes with built-in GitOps
 * [Terragrunt](https://github.com/gruntwork-io/terragrunt): A wrapper for [Terraform](https://www.terraform.io/) for keeping configurations DRY, and managing remote state
 * [WKSctl](https://github.com/weaveworks/wksctl): A tool for Kubernetes cluster configuration management based on GitOps principles
+- [Helm Operator](https://github.com/fluxcd/helm-operator): An operator for using GitOps on K8s with Helm
 
 Also check out Weavework's [Awesome-GitOps](https://github.com/weaveworks/awesome-gitops).
 
@@ -224,6 +236,7 @@ Also check out Weavework's [Awesome-GitOps](https://github.com/weaveworks/awesom
 * [GitOps: What, Why, and How.](https://www.reddit.com/r/kubernetes/comments/dc8bfd/gitops_what_why_and_how/)
 * [What Is GitOps and Why It Might Be The Next Big Thing for DevOps](https://thenewstack.io/what-is-gitops-and-why-it-might-be-the-next-big-thing-for-devops/)
 * [What is GitOps Really?](https://www.weave.works/blog/what-is-gitops-really)
+* [GitOps mit Helm und Kubernetes (German)](https://www.doag.org/formes/pubfiles/11761447/06_2019-Java_aktuell-Bernd_Stuebinger_Florian_Heubeck-GitOps_mit_Helm_und_Kubernetes.pdf)
 
 ### Talks
 
