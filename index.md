@@ -215,7 +215,9 @@ No! There are no GitOps engineers. GitOps is not a role (and neither is DevOps).
 GitOps is a set of practices. You can look for a developer who has experience practicing GitOps &mdash; or simply let your developers try out those practices.
 
 
-## Tooling
+## Tools, Articles, and Talks
+
+### Tools
 
 * [ArgoCD](https://argoproj.github.io/argo-cd/): A GitOps operator for Kubernetes with a web interface
 * [Flux](https://github.com/fluxcd/flux): The GitOps Kubernetes operator by the creators of GitOps &mdash; [Weaveworks](https://www.weave.works/technologies/gitops/)
@@ -226,8 +228,6 @@ GitOps is a set of practices. You can look for a developer who has experience pr
 - [Helm Operator](https://github.com/fluxcd/helm-operator): An operator for using GitOps on K8s with Helm
 
 Also check out Weavework's [Awesome-GitOps](https://github.com/weaveworks/awesome-gitops).
-
-## Resources
 
 ### Blog Posts and Social Media
 
