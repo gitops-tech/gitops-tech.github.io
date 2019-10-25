@@ -58,7 +58,7 @@ You don't have to give your developers direct access to the environment.
 Have you ever SSH'd into a server and wondered what's running there?
 With GitOps, every change to any environment must happen through the repository.
 You can always check out the master branch and get a complete description of what is deployed where plus the complete history of every change ever made to the system.
-
+And you get an audit trail of any changes in your system for free!
 
 ### Shared knowledge in teams
 
