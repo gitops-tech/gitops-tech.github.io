@@ -148,7 +148,3 @@ If you don't see the above output, check whether your repository is publicly acc
 If you're using a private repository, you need to grant Flux access to it.
 Using [fluxctl](https://docs.fluxcd.io/en/stable/references/fluxctl.html), you can access the SSH key of Flux with  `fluxctl identity --k8s-fwd-ns flux`.
 Allow this SSH key access to your repository and you're good!
-
-## Updating your application
-
-TODO

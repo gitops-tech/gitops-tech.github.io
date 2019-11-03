@@ -120,7 +120,7 @@ However, this doesn't mean you can completely do without any monitoring in place
 Most operators support sending mails or Slack notifications if it can not bring the environment to the desired state for any reason, for example if it can not pull a container image.
 Additionally, you probably should set up monitoring for the operator itself, as there is no longer any automated deployment process without it.
 
-<!-- **Want to see how to set it up?** Check out our [Case Study](case-study.md) about setting up Pull-based GitOps on Google's GKE. -->
+**Want to see how to set it up?** Check out our [Case Study](case-study.md) about setting up Pull-based GitOps on Google's GKE.
 
 
 ### Working with Multiple Applications and Environments
