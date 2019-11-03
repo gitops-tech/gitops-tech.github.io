@@ -1,4 +1,4 @@
-## Getting Started with GitOps on Google Cloud
+## Getting Started with GitOps using Flux on Google Cloud Platform
 
 This page explains how to set up pull-based GitOps on Google Cloud Platform using Weavework's [Flux](https://github.com/fluxcd/flux).
 All code used on this page can be found in full on [GitHub](https://github.com/gitops-tech).
