@@ -3,7 +3,7 @@
 Since its inception in 2017 by [Weaveworks](https://www.weave.works/technologies/gitops/), GitOps has caused quite some fuss on Twitter and KubeCon.
 This site aggregates the essence of GitOps to help clear up the confusion about the topic.
 
- 
+
 ## What is GitOps?
 
 GitOps is a way of implementing Continuous Deployment for cloud native applications.
