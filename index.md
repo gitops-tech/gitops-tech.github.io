@@ -122,7 +122,7 @@ Additionally, you probably should set up monitoring for the operator itself, as 
 
 ---
 
-> **Want to see how to set it up?** Check out our [Tutorial](tutorial.md) about setting up Pull-based GitOps on Google's GKE with WeaveWorks Flux.
+**Want to see how to set it up?** Check out our [Tutorial about setting up Pull-based GitOps on Google's GKE with WeaveWorks Flux](tutorial.md).
 
 ---
 
