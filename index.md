@@ -87,7 +87,7 @@ Whenever your application code is updated, the build pipeline is triggered, whic
 Tip: You can also just store templates of your YAMLs in your application repository.
 When a new version is built, you can use the template to generate the YAML in your environment repository.
 
-![Push-based GitOps](images/push.svg)
+![Push-based GitOps](images/push.png)
 
 Changes to the environment repository trigger the deployment pipeline.
 This pipeline is responsible for applying all manifests in the environment repository to your infrastructure.
@@ -108,7 +108,7 @@ It takes over the role of the pipeline by continuously comparing the desired sta
 Whenever differences are noticed, the operator updates the infrastructure to match the environment repository.
 Additionally, when working with Kubernetes clusters, the image registry can be monitored to find new versions of images and deploy them to the cluster.
 
-![Pull-based GitOps](images/pull.svg)
+![Pull-based GitOps](images/pull.png)
 
 Just like push-based GitOps, this variant updates the environment whenever the environment repository changes.
 However, with the operator, changes can also be noticed in the other direction.
@@ -135,7 +135,7 @@ GitOps can also handle such a use case.
 You can always just set up multiple build pipelines that update the environment repository.
 From there on the regular automated GitOps workflow kicks in and deploys all parts of your application.
 
-![Multiple applications and environments](images/multiple.svg)
+![Multiple applications and environments](images/multiple.png)
 
 Managing multiple environments with GitOps can be done by just using separate branches in the environment repository.
 You can set up the operator or the deployment pipeline to react to changes on one branch by deploying to the production environment and another to deploy to staging.
