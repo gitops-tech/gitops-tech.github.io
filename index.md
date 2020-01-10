@@ -263,6 +263,12 @@ In his free time, he likes to go rock climbing.
 
 <div style="clear:left"></div>
 
+<img src="images/anja-avatar.png" alt="Anja" width="80" style="float:left; padding: 12px" />
+
+[Anja Kammer](https://www.linkedin.com/in/anja-kammer-berlin/) is a consultant at INNOQ and creates cloud-native web applications. She deals with deployment automation and CI/CD systems in particular. Her focus is on the topics DevOps, cloud infrastructure and Kubernetes. In her spare time, she develops an open-source cloud-native CI/CD system for Kubernetes called [anya](https://anjakammer.github.io/anya/).
+
+<div style="clear:left"></div>
+
 <img src="images/simon-avatar.png" alt="Simon" width="80" style="float:left; padding: 12px" />
 
 [Simon Harrer](https://twitter.com/simonharrer) is a senior consultant at INNOQ. As part of a [remote mob](https://remotemobprogramming.org), he fights everyday out for simple solutions with domain-driven design, fitting architectures such as microservices or monoliths, and clean code in Java, Ruby or even JavaScript. Most recently, he wrote the book [Java by Comparison](https://java.by-comparison.com) that helps Java beginners to write cleaner code through before/after comparisons.
