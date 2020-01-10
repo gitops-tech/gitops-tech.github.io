@@ -10,11 +10,11 @@ GitOps is a way of implementing Continuous Deployment for cloud native applicati
 It focuses on a developer-centric experience when operating infrastructure, by using tools developers are already familiar with, including Git and Continuous Deployment tools.
 
 The core idea of GitOps is having a Git repository that always contains declarative descriptions of the infrastructure currently desired in the production environment and an automated process to make the production environment match the described state in the repository.
-If you want to deploy a new application or update an existing one, you only need to update the repository - the automated process handles everything else. 
+If you want to deploy a new application or update an existing one, you only need to update the repository - the automated process handles everything else.
 It's like having cruise control for managing your applications in production.
 
-> GitOps: versioned CI/CD on top of declarative infrastructure. Stop scripting and start shipping. 
-> 
+> GitOps: versioned CI/CD on top of declarative infrastructure. Stop scripting and start shipping.
+>
 > &mdash; [Kelsey Hightower](https://twitter.com/kelseyhightower/status/953638870888849408)
 
 
@@ -37,7 +37,7 @@ With GitOps you have a complete history of how your environment changed over tim
 This makes error recovery as easy as issuing a `git revert` and watching your environment being restored.
 
 > The Git record is then not just an audit log but also a transaction log. You can roll back & forth to any snapshot.
-> 
+>
 > &mdash; [Alexis Richardson](https://twitter.com/monadic/status/1002502644798238721)
 
 
@@ -66,59 +66,64 @@ Using Git to store complete descriptions of your deployed infrastructure allows 
 With great commit messages everybody can reproduce the thought process of changing infrastructure and also easily find examples of how to set up new systems.
 
 > GitOps is the best thing since configuration as code. Git changed how we collaborate, but declarative configuration is the key to dealing with infrastructure at scale, and sets the stage for the next generation of management tools.
-> 
+>
 > &mdash; [Kelsey Hightower](https://twitter.com/kelseyhightower/status/1164192321891528704)
 
 
 ## How does GitOps work?
 
-There are two ways how you can organize your Continuous Deployment process with Git repositories as the central element: Push-based GitOps and Pull-based GitOps.
-They both have in common, that they use at least two repositories: the application repository and the environment repository.
-The application repository contains the source code of your application and the deployment manifests to deploy the application, while the environment repository contains all deployment manifests of the currently desired infrastructure in an environment.
-The difference between the two types of GitOps, is how it is ensured, that the environment actually resembles the desired infrastructure.
+## Environment Configurations as Git repository
+GitOps organizes the deployment process around code repositories as the central element.
+There are at least two repositories: the application repository and the environment configuration repository. The application repository contains the source code of the application and the deployment manifests to deploy the application.
+The environment configuration repository contains all deployment manifests of the currently desired infrastructure of an deployment environment. It describes what applications and infrastructural services (message broker, service mesh, monitoring tool, ...) should run with what configuration and version in the deployment environment.
+
+## Push-based vs. Pull-based Deployments
+
+There are two ways to implement the deployment strategy for GitOps: Push-based and Pull-based deployments.
+The difference between the two deployment types is how it is ensured, that the deployment environment actually resembles the desired infrastructure. When possible, the Pull-based approach should be preferred as it is considered the more secure and thus better practice to implement GitOps.
 
 
-### Push-based GitOps
+### Push-based Deployments
 
-Push-based GitOps works with regular CI/CD tools, such as [Jenkins](https://jenkins.io/), [CircleCI](https://circleci.com/) or [Travis CI](https://travis-ci.org/).
-The source code of your application lives inside the application repository along with your Kubernetes YAMLs needed to deploy your app.
-Whenever your application code is updated, the build pipeline is triggered, which builds your container images, and finally the environment repository is updated with new deployment descriptors.
+The Push-based deployment strategy is implemented by popular CI/CD tools such as [Jenkins](https://jenkins.io/), [CircleCI](https://circleci.com/), or [Travis CI](https://travis-ci.org/).
+The source code of the application lives inside the application repository along with the Kubernetes YAMLs needed to deploy the app.
+Whenever the application code is updated, the build pipeline is triggered, which builds the container images and finally the environment configuration repository is updated with new deployment descriptors.
 
-Tip: You can also just store templates of your YAMLs in your application repository.
-When a new version is built, you can use the template to generate the YAML in your environment repository.
+Tip: You can also just store templates of the YAMLs in the application repository.
+When a new version is built, the template can be used to generate the YAML in the environment configuration repository.
 
-![Push-based GitOps](images/push.png)
+![Push-based Deployments](images/push_vertical.png)
 
-Changes to the environment repository trigger the deployment pipeline.
-This pipeline is responsible for applying all manifests in the environment repository to your infrastructure.
+Changes to the environment configuration repository trigger the deployment pipeline.
+This pipeline is responsible for applying all manifests in the environment configuration repository to the infrastructure. With this approach it is indispensable to provide credentials to the deployment environment. So the pipeline has god-mode enabled. In some use cases a Push-based deployment is inevitable when running an automated provisioning of cloud infrastructure. In such cases it is strongly recommended to utilize the fine-granular configurable authorization system of the cloud provider for more restrictive deployment permissions.
 
-One important thing to keep in mind when using this approach, is that the deployment pipeline *only* is triggered when your environment repository changes.
+Another important thing to keep in mind when using this approach is that the deployment pipeline *only* is triggered when the environment repository changes.
 It can not automatically notice any deviations of the environment and its desired state.
-This means, you need some way of monitoring in place, so that you can intervene if your environment doesn't match what is described in the environment repository.
+This means, it needs some way of monitoring in place, so that one can intervene if the environment doesn't match what is described in the environment repository.
 
-**Want to see how to set it up?** Check out [Google's Tutorial](https://cloud.google.com/kubernetes-engine/docs/tutorials/gitops-cloud-build) on how to set up Push-based GitOps with their Cloud Builds and GKE.
+**Want to see how to set it up?** Check out [Google's Tutorial](https://cloud.google.com/kubernetes-engine/docs/tutorials/gitops-cloud-build) on how to set up Push-based deployments with their Cloud Builds and GKE.
 
 
-### Pull-based GitOps
+### Pull-based Deployments
 
-Pull-based GitOps uses the same concepts as the push-based variant, but changes how the deployment pipeline works.
-Traditional CI/CD pipelines are triggered by an external event, for example when new code is pushed to an application repository.
-With this approach, the *operator* is introduced.
+The Pull-based deployment strategy uses the same concepts as the push-based variant but differs in how the deployment pipeline works. Traditional CI/CD pipelines are triggered by an external event, for example when new code is pushed to an application repository.
+With the pull-based deployment approach, the *operator* is introduced.
 It takes over the role of the pipeline by continuously comparing the desired state in the environment repository with the actual state in the deployed infrastructure.
-Whenever differences are noticed, the operator updates the infrastructure to match the environment repository.
-Additionally, when working with Kubernetes clusters, the image registry can be monitored to find new versions of images and deploy them to the cluster.
+Whenever differences are noticed, the operator updates the infrastructure to match the environment repository. Additionally the image registry can be monitored to find new versions of images to deploy.
 
-![Pull-based GitOps](images/pull.png)
+![Pull-based Deployments](images/pull_vertical.png)
 
-Just like push-based GitOps, this variant updates the environment whenever the environment repository changes.
+Just like the push-based deployment, this variant updates the environment whenever the environment repository changes.
 However, with the operator, changes can also be noticed in the other direction.
 Whenever the deployed infrastructure changes in any way not described in the environment repository, these changes are reverted.
-This ensures that all changes are made tracable in the Git log, by making all direct changes to the cluster impossible.
+This ensures that all changes are made traceable in the Git log, by making all direct changes to the cluster impossible.
 
-This change in direction solves the problem of push-based GitOps, where the environment is only updated when the environment repository is updated.
+This change in direction solves the problem of push-based deployments, where the environment is only updated when the environment repository is updated.
 However, this doesn't mean you can completely do without any monitoring in place.
 Most operators support sending mails or Slack notifications if it can not bring the environment to the desired state for any reason, for example if it can not pull a container image.
 Additionally, you probably should set up monitoring for the operator itself, as there is no longer any automated deployment process without it.
+
+The operator should always live in the same environment or cluster as the application to deploy. This prevents the god-mode, seen with the push-based approach, where credentials for doing deployments are known by the CI/CD pipeline. When the actual deploying instance lives inside the very same environment, no credentials need to be known by external services. The Authorization mechanism of the deployment platform in use can be utilized to restrict the permissions on performing deployments. This has a huge impact in terms of security. When using Kubernetes, RBAC configurations and service accounts can be utilized.
 
 ---
 
@@ -161,7 +166,7 @@ However, currently most operators for pull-based GitOps are implemented with Kub
 ### Is GitOps just versioned Infrastructure as Code?
 
 > Is GitOps just a new name for Infra as Code?
-> 
+>
 > &mdash; [sholom](https://twitter.com/sholom/status/1173613576696795136)
 
 No. Declarative Infrastructure as Code plays a huge role for implementing GitOps, but it's not just that.
@@ -174,14 +179,14 @@ Apart from that you gain all the benefits of code reviews, pull requests, and co
 
 First of all, never store secrets in plain text in git! Never!
 
-That being said, you have have secrets created within the environment which never leave the environment. The secret stays unknown, and applications get the secrets they require but they aren't exposed to the outside world. For example, you provision a database within the environment and give the secret to the applications interacting with the database only. 
+That being said, you have have secrets created within the environment which never leave the environment. The secret stays unknown, and applications get the secrets they require but they aren't exposed to the outside world. For example, you provision a database within the environment and give the secret to the applications interacting with the database only.
 
 Another approach is to add a private key once to the environment (probably by someone from a dedicated ops team) and from that point you can add secrets encrypted by the public key to the environment repository. There's even tool support for such [sealed secrets](https://github.com/bitnami-labs/sealed-secrets) in the K8s ecosystem.
 
 
 ### How does GitOps Handle DEV to PROD Propagation?
 
-GitOps doesn't provide a solution to propagating changes from one stage to the next one. 
+GitOps doesn't provide a solution to propagating changes from one stage to the next one.
 We recommend using only a single environment and avoid stage propagation altogether.
 But if you need multiple stages (e.g., DEV, QA, PROD, etc.) with an environment for each, you need to handle the propagation outside of the GitOps scope, for example by some CI/CD pipeline.
 
@@ -204,9 +209,9 @@ So operations never really goes away.
 
 ### Is there also SVNOps?
 
-In a way, yes. 
+In a way, yes.
 In principle, you can use any version control system you want.
-One of the core ideas of GitOps is letting developers use the tools they are familiar with to operate your infrastructure. 
+One of the core ideas of GitOps is letting developers use the tools they are familiar with to operate your infrastructure.
 If you prefer SVN over Git, that's cool!
 However, you may need to put more effort into finding tools that work for you or even write your own.
 All available operators only work with Git repository &mdash; sorry!
