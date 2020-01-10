@@ -92,7 +92,7 @@ Whenever the application code is updated, the build pipeline is triggered, which
 Tip: You can also just store templates of the YAMLs in the application repository.
 When a new version is built, the template can be used to generate the YAML in the environment configuration repository.
 
-![Push-based Deployments](images/push_vertical.png)
+![Push-based Deployments](images/push.png)
 
 Changes to the environment configuration repository trigger the deployment pipeline.
 This pipeline is responsible for applying all manifests in the environment configuration repository to the infrastructure. With this approach it is indispensable to provide credentials to the deployment environment. So the pipeline has god-mode enabled. In some use cases a Push-based deployment is inevitable when running an automated provisioning of cloud infrastructure. In such cases it is strongly recommended to utilize the fine-granular configurable authorization system of the cloud provider for more restrictive deployment permissions.
@@ -111,7 +111,7 @@ With the pull-based deployment approach, the *operator* is introduced.
 It takes over the role of the pipeline by continuously comparing the desired state in the environment repository with the actual state in the deployed infrastructure.
 Whenever differences are noticed, the operator updates the infrastructure to match the environment repository. Additionally the image registry can be monitored to find new versions of images to deploy.
 
-![Pull-based Deployments](images/pull_vertical.png)
+![Pull-based Deployments](images/pull.png)
 
 Just like the push-based deployment, this variant updates the environment whenever the environment repository changes.
 However, with the operator, changes can also be noticed in the other direction.
