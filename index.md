@@ -265,7 +265,7 @@ In his free time, he likes to go rock climbing.
 
 <img src="images/simon-avatar.png" alt="Simon" width="80" style="float:left; padding: 12px" />
 
-[Simon Harrer](https://twitter.com/simonharrer) is a senior consultant at INNOQ. As part of a [remote mob](https://remotemobprogramming.org), he fights everyday out for simple solutions with domain-driven design, fitting architectures such as microservices or monoliths, and clean code in Java, Ruby or even JavaScript. Most recently, he wrote the book [Java by Comparison](https://java.by-comparison.com) that helps Java beginners to write cleaner code through before/after comparisons.
+[Dr. Simon Harrer](https://twitter.com/simonharrer) is a senior consultant at INNOQ. As part of a [remote mob](https://remotemobprogramming.org), he fights everyday out for simple solutions with domain-driven design, fitting architectures such as microservices or monoliths, and clean code in Java, Ruby or even JavaScript. Most recently, he wrote the book [Java by Comparison](https://java.by-comparison.com) that helps Java beginners to write cleaner code through before/after comparisons.
 
 
 
