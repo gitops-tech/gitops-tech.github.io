@@ -4,6 +4,14 @@ Since its inception in 2017 by [Weaveworks](https://www.weave.works/technologies
 This site aggregates the essence of GitOps to help clear up the confusion about the topic.
 
 
+---
+
+[![Book on GitOps](images/cover.png){:height="300px"}](https://leanpub.com/gitops)
+
+We're working on a book on GitOps. Preregister at [leanpub](https://leanpub.com/gitops) to be notified when we publish it.
+
+---
+
 ## What is GitOps?
 
 GitOps is a way of implementing Continuous Deployment for cloud native applications.
