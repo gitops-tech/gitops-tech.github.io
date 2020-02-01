@@ -1,3 +1,13 @@
+# GitOps
+
+---
+
+[![Book on GitOps](images/cover.png){:height="300px"}](https://leanpub.com/gitops)
+
+We're working on a book on GitOps. [Preregister at leanpub](https://leanpub.com/gitops) to be notified when we publish it.
+
+---
+
 ## Getting Started with GitOps using Flux on Google Cloud Platform
 
 This page explains how to set up [pull-based GitOps](https://www.gitops.tech/#pull-based-gitops) on Google Cloud Platform using Weavework's [Flux](https://github.com/fluxcd/flux).
