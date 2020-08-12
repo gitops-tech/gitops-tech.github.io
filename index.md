@@ -241,7 +241,8 @@ GitOps is a set of practices. You can look for a developer who has experience pr
 * [JenkinsX](https://jenkins-x.io/): Continuous Delivery on Kubernetes with built-in GitOps
 * [Terragrunt](https://github.com/gruntwork-io/terragrunt): A wrapper for [Terraform](https://www.terraform.io/) for keeping configurations DRY, and managing remote state
 * [WKSctl](https://github.com/weaveworks/wksctl): A tool for Kubernetes cluster configuration management based on GitOps principles
-- [Helm Operator](https://github.com/fluxcd/helm-operator): An operator for using GitOps on K8s with Helm
+* [Helm Operator](https://github.com/fluxcd/helm-operator): An operator for using GitOps on K8s with Helm
+* [werf](https://werf.io/): A CLI tool to build images and deploy them to Kubernetes via push-based approach
 
 Also check out Weavework's [Awesome-GitOps](https://github.com/weaveworks/awesome-gitops).
 
