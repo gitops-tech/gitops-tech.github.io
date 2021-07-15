@@ -8,7 +8,7 @@ This site aggregates the essence of GitOps to help clear up the confusion about 
 
 [![Book on GitOps](images/innoQ-GitOpsPrimer-final_Cover.jpg){:height="300px"}](https://leanpub.com/gitops/c/release-50-for-50-website)
 
-We're working on a book on GitOps that'll be released on July 15th. [Preregister at leanpub](https://leanpub.com/gitops/c/release-50-for-50-website) or [preorder at Amazon](https://www.amazon.com/gp/product/B098GSX42P/).
+We've just released our short book on GitOps. [Buy the PDF at leanpub (50% off for the first 50 readers)](https://leanpub.com/gitops/c/release-50-for-50-website) or [buy the Kindle eBook at Amazon](https://www.amazon.com/gp/product/B098GSX42P/).
 
 ---
 
