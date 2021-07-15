@@ -10,6 +10,8 @@ This site aggregates the essence of GitOps to help clear up the confusion about 
 
 We've just released our short book on GitOps. [Buy the PDF at leanpub (50% off for the first 50 readers)](https://leanpub.com/gitops/c/release-50-for-50-website) or [buy the Kindle eBook at Amazon](https://www.amazon.com/gp/product/B098GSX42P/).
 
+<a href="https://www.producthunt.com/posts/gitops?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-gitops" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=303664&theme=light" alt="GitOps - A short book on the what, why, and how of GitOps | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
+
 ---
 
 ## What is GitOps?
