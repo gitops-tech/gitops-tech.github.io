@@ -3,8 +3,8 @@
 **Angaben gemäß § 5 TMG<br/>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV**
 
 Florian Beetz<br/>
-Josephstr. 16<br/>
-96052 Bamberg<br/>
+Tetzelgasse 17<br/>
+90403 Nürnberg<br/>
 GERMANY
 
 [florian@gitops.tech](mailto:florian@gitops.tech)
