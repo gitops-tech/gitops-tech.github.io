@@ -280,8 +280,8 @@ In his free time, he likes to go rock climbing.
 
 <img src="images/simon-avatar.png" alt="Simon" width="80" style="float:left; padding: 12px" />
 
-[Dr. Simon Harrer](https://twitter.com/simonharrer) is a senior consultant at INNOQ. As part of a [remote mob](https://remotemobprogramming.org), he fights everyday out for simple solutions with domain-driven design, fitting architectures such as microservices or monoliths, and clean code in Java, Ruby or even JavaScript. Most recently, he wrote the book [Java by Comparison](https://java.by-comparison.com) that helps Java beginners to write cleaner code through before/after comparisons.
-
+[Dr. Simon Harrer](https://twitter.com/simonharrer) is a curious person working at INNOQ who likes to share his knowledge.
+He's a serial co-author of <a href="https://java.by-comparison.com">Java by Comparison</a>, <a href="https://remotemobprogramming.org">Remote Mob Programming</a>, <a href="https://gitops.tech">GitOps</a>, and, most recently, <a href="https://datamesh-architecture.com/">Data Mesh</a>.
 
 
 [Imprint and Privacy Policy](legal.md)
