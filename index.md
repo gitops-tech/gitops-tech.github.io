@@ -243,6 +243,7 @@ GitOps is a set of practices. You can look for a developer who has experience pr
 * [WKSctl](https://github.com/weaveworks/wksctl): A tool for Kubernetes cluster configuration management based on GitOps principles
 * [Helm Operator](https://github.com/fluxcd/helm-operator): An operator for using GitOps on K8s with Helm
 * [werf](https://werf.io/): A CLI tool to build images and deploy them to Kubernetes via push-based approach
+* [Gimlet](https://gimlet.io): Gimlet is a command line tool and a dashboard that packages a set of conventions and matching workflows to manage a gitops developer platform effectively
 
 Also check out Weavework's [Awesome-GitOps](https://github.com/weaveworks/awesome-gitops).
 
