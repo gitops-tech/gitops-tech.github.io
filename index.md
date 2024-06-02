@@ -237,7 +237,7 @@ GitOps is a set of practices. You can look for a developer who has experience pr
 
 * [ArgoCD](https://argoproj.github.io/argo-cd/): A GitOps operator for Kubernetes with a web interface
 * [Flux](https://github.com/fluxcd/flux): The GitOps Kubernetes operator by the creators of GitOps &mdash; [Weaveworks](https://www.weave.works/technologies/gitops/)
-* [Gitkube](https://gitkube.sh): A tool for building and deploying docker images on Kubernetes using `git push`
+* [Gitkube](https://github.com/hasura/gitkube): A tool for building and deploying docker images on Kubernetes using `git push`
 * [JenkinsX](https://jenkins-x.io/): Continuous Delivery on Kubernetes with built-in GitOps
 * [Terragrunt](https://github.com/gruntwork-io/terragrunt): A wrapper for [Terraform](https://www.terraform.io/) for keeping configurations DRY, and managing remote state
 * [WKSctl](https://github.com/weaveworks/wksctl): A tool for Kubernetes cluster configuration management based on GitOps principles
