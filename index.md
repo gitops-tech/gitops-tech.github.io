@@ -1,6 +1,6 @@
 # GitOps
 
-Since its inception in 2017 by [Weaveworks](https://www.weave.works/technologies/gitops/), GitOps has caused quite some fuss on Twitter and KubeCon.
+Since its inception in 2017 by [Weaveworks](https://web.archive.org/web/20230530181135/https://www.weave.works/technologies/gitops/), GitOps has caused quite some fuss on Twitter and KubeCon.
 This site aggregates the essence of GitOps to help clear up the confusion about the topic.
 
 
@@ -36,7 +36,7 @@ Everything happens in the version control system you use for developing the appl
 
 > When we say “high velocity” we mean that every product team can safely ship updates many times a day &mdash; deploy instantly, observe the results in real time, and use this feedback to roll forward or back.
 >
-> &mdash; [Weaveworks](https://www.weave.works/blog/gitops-high-velocity-cicd-for-kubernetes)
+> &mdash; [Weaveworks](https://web.archive.org/web/20230606094036/https://www.weave.works/blog/gitops-high-velocity-cicd-for-kubernetes)
 
 ### Easy and Fast Error Recovery
 
@@ -236,7 +236,7 @@ GitOps is a set of practices. You can look for a developer who has experience pr
 ### Tools
 
 * [ArgoCD](https://argoproj.github.io/argo-cd/): A GitOps operator for Kubernetes with a web interface
-* [Flux](https://github.com/fluxcd/flux): The GitOps Kubernetes operator by the creators of GitOps &mdash; [Weaveworks](https://www.weave.works/technologies/gitops/)
+* [Flux](https://github.com/fluxcd/flux): The GitOps Kubernetes operator by the creators of GitOps &mdash; [Weaveworks](https://web.archive.org/web/20230530181135/https://www.weave.works/technologies/gitops/)
 * [Gitkube](https://github.com/hasura/gitkube): A tool for building and deploying docker images on Kubernetes using `git push`
 * [JenkinsX](https://jenkins-x.io/): Continuous Delivery on Kubernetes with built-in GitOps
 * [Terragrunt](https://github.com/gruntwork-io/terragrunt): A wrapper for [Terraform](https://www.terraform.io/) for keeping configurations DRY, and managing remote state
@@ -250,10 +250,10 @@ Also check out Weavework's [Awesome-GitOps](https://github.com/weaveworks/awesom
 ### Blog Posts and Social Media
 
 * [An Inside Look at GitOps](https://devops.com/an-inside-look-at-gitops/)
-* [GitOps - Operations by Pull Request](https://www.weave.works/blog/gitops-operations-by-pull-request)
+* [GitOps - Operations by Pull Request](https://web.archive.org/web/20230506102742/https://www.weave.works/blog/gitops-operations-by-pull-request)
 * [GitOps: What, Why, and How.](https://www.reddit.com/r/kubernetes/comments/dc8bfd/gitops_what_why_and_how/)
 * [What Is GitOps and Why It Might Be The Next Big Thing for DevOps](https://thenewstack.io/what-is-gitops-and-why-it-might-be-the-next-big-thing-for-devops/)
-* [What is GitOps Really?](https://www.weave.works/blog/what-is-gitops-really)
+* [What is GitOps Really?](https://web.archive.org/web/20230608225619/https://www.weave.works/blog/what-is-gitops-really)
 * [GitOps mit Helm und Kubernetes (German)](https://www.doag.org/formes/pubfiles/11761447/06_2019-Java_aktuell-Bernd_Stuebinger_Florian_Heubeck-GitOps_mit_Helm_und_Kubernetes.pdf)
 
 ### Talks
