@@ -3,6 +3,9 @@
 Since its inception in 2017 by [Weaveworks](https://web.archive.org/web/20230530181135/https://www.weave.works/technologies/gitops/), GitOps has caused quite some fuss on Twitter and KubeCon.
 This site aggregates the essence of GitOps to help clear up the confusion about the topic.
 
+Weaveworks wound down in 2024 and no longer owns its old domain, so the original sources cited on this page are linked via the Internet Archive.
+GitOps is now stewarded by the CNCF's [OpenGitOps](https://opengitops.dev/) working group, which maintains the current [GitOps Principles](https://github.com/open-gitops/documents/blob/main/PRINCIPLES.md).
+
 
 ---
 
@@ -236,7 +239,7 @@ GitOps is a set of practices. You can look for a developer who has experience pr
 ### Tools
 
 * [ArgoCD](https://argoproj.github.io/argo-cd/): A GitOps operator for Kubernetes with a web interface
-* [Flux](https://github.com/fluxcd/flux): The GitOps Kubernetes operator by the creators of GitOps &mdash; [Weaveworks](https://web.archive.org/web/20230530181135/https://www.weave.works/technologies/gitops/)
+* [Flux](https://fluxcd.io/): The GitOps Kubernetes operator by the creators of GitOps &mdash; [Weaveworks](https://web.archive.org/web/20230530181135/https://www.weave.works/technologies/gitops/). Now a graduated CNCF project maintained as [Flux v2](https://github.com/fluxcd/flux2); the original [Flux v1](https://github.com/fluxcd/flux) is archived
 * [Gitkube](https://github.com/hasura/gitkube): A tool for building and deploying docker images on Kubernetes using `git push`
 * [JenkinsX](https://jenkins-x.io/): Continuous Delivery on Kubernetes with built-in GitOps
 * [Terragrunt](https://github.com/gruntwork-io/terragrunt): A wrapper for [Terraform](https://www.terraform.io/) for keeping configurations DRY, and managing remote state
@@ -250,10 +253,11 @@ Also check out Weavework's [Awesome-GitOps](https://github.com/weaveworks/awesom
 ### Blog Posts and Social Media
 
 * [An Inside Look at GitOps](https://devops.com/an-inside-look-at-gitops/)
-* [GitOps - Operations by Pull Request](https://web.archive.org/web/20230506102742/https://www.weave.works/blog/gitops-operations-by-pull-request)
+* [GitOps - Operations by Pull Request](https://web.archive.org/web/20230506102742/https://www.weave.works/blog/gitops-operations-by-pull-request) (Weaveworks, via the Internet Archive)
 * [GitOps: What, Why, and How.](https://www.reddit.com/r/kubernetes/comments/dc8bfd/gitops_what_why_and_how/)
+* [OpenGitOps Principles](https://github.com/open-gitops/documents/blob/main/PRINCIPLES.md): the CNCF working group's current, maintained definition of GitOps
 * [What Is GitOps and Why It Might Be The Next Big Thing for DevOps](https://thenewstack.io/what-is-gitops-and-why-it-might-be-the-next-big-thing-for-devops/)
-* [What is GitOps Really?](https://web.archive.org/web/20230608225619/https://www.weave.works/blog/what-is-gitops-really)
+* [What is GitOps Really?](https://web.archive.org/web/20230608225619/https://www.weave.works/blog/what-is-gitops-really) (Weaveworks, via the Internet Archive)
 * [GitOps mit Helm und Kubernetes (German)](https://www.doag.org/formes/pubfiles/11761447/06_2019-Java_aktuell-Bernd_Stuebinger_Florian_Heubeck-GitOps_mit_Helm_und_Kubernetes.pdf)
 
 ### Talks
